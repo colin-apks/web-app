@@ -1,0 +1,79 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>触屏手指滑动计算演示(摘自网络)</title>
+</head>
+<body style="font-size:32px;">
+<div style="width:100%">
+	<h2>触屏手指滑动方向计算演示</h2>
+	<div id="region" style="background-color:yellow;width:100%;height:50%"></div>
+	起始坐标<br/>
+	<input id="touchStart" style="font-size: 48px;"/><br/>
+	结果计算<br/>
+	<input id="touchMove" style="font-size: 48px;"/>
+
+</div>
+<script type="text/javascript">
+
+    var tagId = "region";
+    var pressX = 0, pressY = 0;
+    var obj = document.getElementById(tagId);
+    //这里在一个特定的div上移动，也可以在document上做判断
+    obj.addEventListener('touchmove', function(event) {
+        // 如果这个元素的位置内只有一个手指的话
+        //targetTouches判断，增加代码健壮性
+        if (event.targetTouches.length == 1) {
+            var touch = event.targetTouches[0];
+            var spanX = touch.pageX - pressX;
+            var spanY = touch.pageY - pressY;
+            var direct = "none";
+            //通过数学问题判断---坐标系问题，理解了就很简单
+            if (Math.abs(spanX) > Math.abs(spanY)) {
+                //水平方向
+                if (spanX > 0) {
+                    direct = "right";//向右
+                    //do right function
+                } else {
+                    direct = "left";//向左
+                    //do left function
+                }
+            } else {
+                //垂直方向
+                if (spanY > 0) {
+                    direct = "down";//向下
+                    //do down function
+                } else {
+                    direct = "up";//向上
+                    //do up function
+                }
+            }
+            // 把元素放在手指所在的位置
+            touchMove.value = direct + "(" + spanX + ';' + spanY + ")";
+        }
+    }, false);
+
+    obj.addEventListener('touchstart', function(event) {
+        // 如果这个元素的位置内只有一个手指的话
+        if (event.targetTouches.length == 1) {
+            var touch = event.targetTouches[0];
+            // 把元素放在手指所在的位置
+            pressX = touch.pageX;
+            pressY = touch.pageY;
+
+            touchStart.value = pressX + ';' + pressY;
+        }
+    }, false);
+
+    /*
+    obj.addEventListener('touchend', function(event) {
+        // 如果这个元素的位置内只有一个手指的话
+        if (event.targetTouches.length == 1) {
+            var touch = event.targetTouches[0];
+            // 把元素放在手指所在的位置
+            touchEnd.value=touch.pageX + ';' + touch.pageY;
+        }
+    }, false);
+     */
+</script>
+</body>
+</html>
