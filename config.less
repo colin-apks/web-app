@@ -1,0 +1,109 @@
+/**
+ * Created by Colin on 2014/12/22.
+ */
+
+//css3二维变化
+.rotate(@radius:90){
+  -webikt-transform:rotate(@radius);
+  -moz-transform: rotate(@radius);
+  transform: rotate(@radius);
+}
+.translate(@x:100px,@y:100px){
+  -webkit-transform: translate(@arguments);
+  -moz-transform: translate(@arguments);
+  transform: translate(@arguments);
+}
+.scale(@x:0.5,@y:0.5){
+  -webkit-transform: scale(@x,@y);
+  -moz-transform: scale(@x,@y);
+  transform: scale(@x,@y);
+}
+//属性变化
+.transition(@property:all,@duration:2s,@function:ease,@dely:0s){
+  -webikt-transition:@arguments;
+  -moz-transition:@arguments;
+  transition:@arguments;
+}
+//盒阴影
+.box-shadow (@insert:"",@x: 0, @y: 0, @blur: 1px, @color: #ccc) {
+  box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  -webkit-box-shadow: @arguments;
+}
+//盒模型
+.box(){
+  display:-moz-box;
+  display:-webkit-box;
+  display:box;
+}
+.flex(@x:1){
+  -moz-box-flex:@x;
+  -webkit-box-flex:@x;
+  box-flex:@x;
+}
+//子容器排列方式  :    inline-axis | block-axis | inherit
+.box-orient(@arg:vertical){
+  -moz-box-orient:@arg;
+  -webkit-box-orient:@arg;
+  box-orient:@arg;
+}
+//子容器在垂直方向上的表现方式 ：  start | end | center | baseline | stretch
+.box-align(@arg){
+  -moz-box-align:@arg;
+  -webkit-box-align:@arg;
+  -o-box-align:@arg;
+  box-align:@arg;
+}
+//子容器在水平方向上的表现方式 ：start | end | center | justify
+.box-pack(@arg){
+  -moz-box-pack:@arg;
+  -webkit-box-pack:@arg;
+  -o-box-pack:@arg;
+  box-pack:@arg;
+}
+//圆角
+.border-radius (@r1,...) {
+  border-radius: @arguments;
+  -moz-border-radius: @arguments;
+  -webkit-border-radius: @arguments;
+}
+
+.wrap () {
+  text-wrap: wrap;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  word-wrap: break-word;
+}
+//各式各样的三角形 顺时针
+//向上
+.triangle(@w1,@w2,@w3,@color,@direction:up) when (@direction=up){
+  width: 0;
+  height: 0;
+  border-left: @w3 solid transparent;
+  border-right: @w1 solid transparent;
+  border-bottom: @w2 solid @color;
+}
+//向下
+.triangle(@w1,@w2,@w3,@color,@direction:up) when (@direction=down) {
+  width: 0;
+  height: 0;
+  border-left: @w3 solid transparent;
+  border-right: @w2 solid transparent;
+  border-top: @w1 solid @color;
+}
+//向左
+.triangle(@w1,@w2,@w3,@color,@direction:up) when (@direction=left){
+  width: 0;
+  height: 0;
+  border-top: @w1 solid transparent;
+  border-right: @w2 solid @color;
+  border-bottom: @w3 solid transparent;
+}
+//向右
+.triangle(@w1,@w2,@w3,@color,@direction:up) when (@direction=right){
+  width: 0;
+  height: 0;
+  border-top: @w1 solid transparent;
+  border-left: @w3 solid @color;
+  border-bottom: @w2 solid transparent;
+}
