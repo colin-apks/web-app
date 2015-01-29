@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+    .container {
+        /*
+    	flex-flow:row wrap;/column 伸缩项目排列方式 wrap会另起一行
+
+    	 */
+        
+        width: 600px;
+        height: 300px;
+        border: 1px solid #ccc;
+        margin: auto;
+        display: -webkit-flex;
+        flex-flow: row;
+        align-items: stretch;
+    }
+    .container div:nth-of-type(1) {
+        width: 80px;
+        background: red;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .container div:nth-of-type(2) {
+        background: yellow;
+        -webkit-flex: 1;
+        height: 100px;
+    }
+    .container div:nth-of-type(3) {
+        background: blue;
+        -webkit-flex: 2;
+        height: 150px;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 伸缩容器：一个设有“display:flex”或“display:inline-flex”的元素
+ 伸缩项目：伸缩容器的子元素
+ 主轴、主轴方向：用户代理沿着一个伸缩容器的主轴配置伸缩项目，主轴是主轴方向的延伸。
+ 主轴起点、主轴终点：伸缩项目的配置从容器的主轴起点边开始，往主轴终点边结束。
+ 主轴长度、主轴长度属性：伸缩项目的在主轴方向的宽度或高度就是项目的主轴长度，伸缩项目的主轴长度属性是width或height属性，由哪一个对着主轴方向决定。
+ 侧轴、侧轴方向：与主轴垂直的轴称作侧轴，是侧轴方向的延伸。
+ 侧轴起点、侧轴终点：填满项目的伸缩行的配置从容器的侧轴起点边开始，往侧轴终点边结束。
+ 侧轴长度、侧轴长度属性：伸缩项目的在侧轴方向的宽度或高度就是项目的侧轴长度，伸缩项目的侧轴长度属性是「width」或「height」属性，由哪一个对着侧轴方向决定。
+
+伸缩容器（flex containers）是一个HTML标签元素，并且“display”属性显式的设置了“flex”属性值。在伸缩容器中的所有子元素都会自动变成伸缩项目（flex items）。
+
+参考网站 http://www.w3cplus.com/css3/flexbox-basics.html
+
+以下概念非常重要
+主轴:伸缩项目排列的方向
+侧轴永远垂直于主轴
+align-items :调整伸缩项目在侧轴的对齐方式  flex-start/baseline  flex-end  center stretch
+justify-content:主轴对齐伸缩项目 flex-start flex-end center  space-between
+  -->
+
+    <div class="container">
+        <div class="div1"></div>
+        <div class="div2"></div>
+        <div class="div3"></div>
+    </div>
+
+</body>
+
+</html>
